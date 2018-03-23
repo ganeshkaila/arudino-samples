@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>LED Control</title>
+	</head>
+	<body>
+	Arduino Nano Default LED : 
+	<input class="led" name ="led" type="radio" id="on"> ON
+	<input class="led" name ="led" type="radio" id="off" checked> OFF
+		
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".led").click(function(){
+				var state = $(this).attr('id');
+				// Replace the IP address 192.168.4.1 with the IP address that shown in the terminal.
+				$.get("http://192.168.4.1:80/", {led:state});
+			});
+		});
+	</script>
+	</body>
+</html>
